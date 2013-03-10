@@ -95,5 +95,30 @@ public class DBManager {
 					null,
 					KEY_SPECIES + " ASC");
 	}
+	
+	//Used for searching the database for a particular item based on a search term
+	public Cursor getSearchResults(String searchQuery) throws SQLException 
+	{
+	       Cursor search = databasely.query(true, TABLE_NAME, new String[] 
+	    		   {
+		    		   KEY_ROWID,
+		    		   KEY_SPECIES,
+		    		   KEY_NOTE,
+		    		   KEY_LAT,
+		    		   KEY_LON
+	    		   }, 
+	    		   KEY_SPECIES + " like '%"+searchQuery+"%'", 
+	                null,
+	                null, 
+	                null, 
+	                null, 
+	                null);
+	       if (search != null) 
+	       {
+	           search.moveToFirst();
+	       }
+	       
+	       return search;
+	}
 
 }

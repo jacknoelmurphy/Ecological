@@ -197,8 +197,6 @@ public class AddData extends Activity implements View.OnClickListener{
 		
 	}
 	
-	//test github
-	
 	/*public String writeImage(Context c, Bitmap imageOut)
 	{
 		String imageName = null;
