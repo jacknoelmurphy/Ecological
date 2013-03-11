@@ -117,6 +117,7 @@ public class AddData extends Activity implements View.OnClickListener{
 			else
 			{
 				try {
+					FILENAME = Long.toString(System.currentTimeMillis())+".jpg";
 					fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
 					fos.write(ba);
 					fos.close();
