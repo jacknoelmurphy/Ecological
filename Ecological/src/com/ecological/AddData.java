@@ -130,7 +130,7 @@ public class AddData extends Activity implements View.OnClickListener{
 				}
 				
 				data_add.open();
-				data_add.createEntry(FILENAME, species_in, note_in, templat, templon);
+				data_add.createEntry(species_in, note_in, templat, templon);
 				data_add.close();
 				
 				AlertDialog.Builder confirm_add = new AlertDialog.Builder(AddData.this);

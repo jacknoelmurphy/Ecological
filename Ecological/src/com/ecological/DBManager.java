@@ -14,7 +14,6 @@ public class DBManager {
 	public static final String KEY_NOTE = "_note";
 	public static final String KEY_LAT = "_lat";
 	public static final String KEY_LON = "_lon";
-	public static final String KEY_IMG = "_img";
 	
 	private static final String DATABASE_NAME = "capturesdb";
 	private static final int DATABASE_VERSION = 1;
@@ -36,7 +35,6 @@ public class DBManager {
 		{
 			db.execSQL("CREATE TABLE " + TABLE_NAME + " (" +
 					KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-					KEY_IMG + " TEXT NOT NULL, " +
 					KEY_SPECIES + " TEXT NOT NULL, " +
 					KEY_NOTE + " TEXT NOT NULL, " +
 					KEY_LAT + " DOUBLE NOT NULL, " +
@@ -70,10 +68,9 @@ public class DBManager {
 	}
 	
 	//may need to change from long when picture is added
-	public long createEntry(String img, String species, String note, Double lat, Double lon)
+	public long createEntry(String species, String note, Double lat, Double lon)
 	{
 		ContentValues cv = new ContentValues();
-		cv.put(KEY_IMG, img);
 		cv.put(KEY_SPECIES, species);
 		cv.put(KEY_NOTE, note);
 		cv.put(KEY_LAT, lat);
@@ -87,7 +84,6 @@ public class DBManager {
 		return databasely.query(TABLE_NAME, new String[]
 				{
 					KEY_ROWID,
-					KEY_IMG,
 					KEY_SPECIES,
 					KEY_NOTE,
 					KEY_LAT,
@@ -106,7 +102,6 @@ public class DBManager {
 	       Cursor search = databasely.query(true, TABLE_NAME, new String[] 
 	    		   {
 		    		   KEY_ROWID,
-		    		   KEY_IMG,
 		    		   KEY_SPECIES,
 		    		   KEY_NOTE,
 		    		   KEY_LAT,
